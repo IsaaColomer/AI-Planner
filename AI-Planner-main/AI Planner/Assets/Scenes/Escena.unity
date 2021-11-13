@@ -221,6 +221,7 @@ GameObject:
   - component: {fileID: 382256894}
   - component: {fileID: 382256893}
   - component: {fileID: 382256892}
+  - component: {fileID: 382256896}
   m_Layer: 0
   m_Name: Treasure
   m_TagString: Untagged
@@ -357,6 +358,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EnableTraitInspectors: 1
+--- !u!114 &382256896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382256887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f222baf27330f49959caf266f2f6b851, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Query:
+    m_QueryGroups:
+    - m_Filters: []
+      m_Quantifier: 0
+      m_QuantifierLimit: 1
+      m_QuantifierScorer:
+        id: 0
+      m_RequiredTraits:
+        m_Traits:
+        - {fileID: 11400000, guid: d000a0d5c8208084d810316a23a072a4, type: 2}
+        - {fileID: 11400000, guid: 8680bf8ae14216046a835706af2d61ea, type: 2}
+        - {fileID: 11400000, guid: 3b5cfcc53a21ee34f96dc33f844c4d76, type: 2}
+      m_ProhibitedTraits:
+        m_Traits: []
+  references:
+    version: 1
+    00000000:
+      type: {class: , ns: , asm: }
 --- !u!1 &859428156 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6644603938449114179, guid: 35d11d1e1dd397942b5024ee78060e27, type: 3}
@@ -399,7 +430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_p338023941: {fileID: 859428163}
-  m_p2084774077: {x: 5.64, y: 0, z: -3.43}
+  m_p2084774077: {x: 5.98, y: 0, z: -1.49}
   m_p2006904664: {x: 0, y: 0, z: 1}
 --- !u!114 &859428160
 MonoBehaviour:
@@ -431,6 +462,36 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6631964419132099031, guid: 35d11d1e1dd397942b5024ee78060e27, type: 3}
   m_PrefabInstance: {fileID: 1154898706}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &859428164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859428156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f222baf27330f49959caf266f2f6b851, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Query:
+    m_QueryGroups:
+    - m_Filters: []
+      m_Quantifier: 0
+      m_QuantifierLimit: 1
+      m_QuantifierScorer:
+        id: 0
+      m_RequiredTraits:
+        m_Traits:
+        - {fileID: 11400000, guid: d000a0d5c8208084d810316a23a072a4, type: 2}
+        - {fileID: 11400000, guid: 8680bf8ae14216046a835706af2d61ea, type: 2}
+        - {fileID: 11400000, guid: 3b5cfcc53a21ee34f96dc33f844c4d76, type: 2}
+      m_ProhibitedTraits:
+        m_Traits: []
+  references:
+    version: 1
+    00000000:
+      type: {class: , ns: , asm: }
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -705,7 +766,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6631964419132099031, guid: 35d11d1e1dd397942b5024ee78060e27, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.64
+      value: 5.98
       objectReference: {fileID: 0}
     - target: {fileID: 6631964419132099031, guid: 35d11d1e1dd397942b5024ee78060e27, type: 3}
       propertyPath: m_LocalPosition.y
@@ -713,7 +774,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6631964419132099031, guid: 35d11d1e1dd397942b5024ee78060e27, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.43
+      value: -1.49
       objectReference: {fileID: 0}
     - target: {fileID: 6631964419132099031, guid: 35d11d1e1dd397942b5024ee78060e27, type: 3}
       propertyPath: m_LocalRotation.w
@@ -861,7 +922,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7423567203501390115, guid: b79d0b13355dc8f44b7956db61a82656, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.95
+      value: 13.98
       objectReference: {fileID: 0}
     - target: {fileID: 7423567203501390115, guid: b79d0b13355dc8f44b7956db61a82656, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1214,7 +1275,7 @@ MonoBehaviour:
       m_Enum: {fileID: 0}
       m_Value: 
   - m_ActionName: Approach
-    m_PlanExecutorStateUpdateMode: 1
+    m_PlanExecutorStateUpdateMode: 0
     m_Method: Seek
     m_SourceGameObject: {fileID: 1867897468}
     m_Source: {fileID: 1867897469}
@@ -1269,7 +1330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_p338023941: {fileID: 1867897478}
-  m_p2084774077: {x: 2.54, y: 3.0713345e-17, z: 6.95}
+  m_p2084774077: {x: 2.54, y: 3.0713345e-17, z: 13.98}
   m_p2006904664: {x: 0, y: 0, z: 1}
 --- !u!114 &1867897476
 MonoBehaviour:
