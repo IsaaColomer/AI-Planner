@@ -13,56 +13,10 @@ namespace Generated.Semantic.Traits
     [RequireComponent(typeof(SemanticObject))]
     public partial class cop : MonoBehaviour, ITrait
     {
-        public System.Boolean Ready2steal
-        {
-            get
-            {
-                if (m_EntityManager != default && m_EntityManager.HasComponent<copData>(m_Entity))
-                {
-                    m_p0 = m_EntityManager.GetComponentData<copData>(m_Entity).Ready2steal;
-                }
-
-                return m_p0;
-            }
-            set
-            {
-                copData data = default;
-                var dataActive = m_EntityManager != default && m_EntityManager.HasComponent<copData>(m_Entity);
-                if (dataActive)
-                    data = m_EntityManager.GetComponentData<copData>(m_Entity);
-                data.Ready2steal = m_p0 = value;
-                if (dataActive)
-                    m_EntityManager.SetComponentData(m_Entity, data);
-            }
-        }
-        public copData Data
-        {
-            get => m_EntityManager != default && m_EntityManager.HasComponent<copData>(m_Entity) ?
-                m_EntityManager.GetComponentData<copData>(m_Entity) : GetData();
-            set
-            {
-                if (m_EntityManager != default && m_EntityManager.HasComponent<copData>(m_Entity))
-                    m_EntityManager.SetComponentData(m_Entity, value);
-            }
-        }
-
-        #pragma warning disable 649
-        [SerializeField]
-        [InspectorName("Ready2steal")]
-        System.Boolean m_p0 = true;
-        #pragma warning restore 649
 
         EntityManager m_EntityManager;
         World m_World;
         Entity m_Entity;
-
-        copData GetData()
-        {
-            copData data = default;
-            data.Ready2steal = m_p0;
-
-            return data;
-        }
 
         
         void OnEnable()
@@ -81,7 +35,7 @@ namespace Generated.Semantic.Traits
 
             if (!destinationManager.HasComponent(entity, typeof(copData)))
             {
-                destinationManager.AddComponentData(entity, GetData());
+                destinationManager.AddComponent<copData>(entity);
             }
         }
 
@@ -95,17 +49,12 @@ namespace Generated.Semantic.Traits
             }
         }
 
-        void OnValidate()
-        {
-
-            // Commit local fields to backing store
-            Data = GetData();
-        }
+        
 
 #if UNITY_EDITOR
         void OnDrawGizmos()
         {
-            TraitGizmos.DrawGizmoForTrait(nameof(copData), gameObject,Data);
+            TraitGizmos.DrawGizmoForTrait(nameof(copData), gameObject,null);
         }
 #endif
     }

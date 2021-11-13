@@ -388,13 +388,6 @@ namespace Generated.AI.Planner.StateRepresentation.RobberPlan
             {
                 foreach (var type in sourceTraitTypes)
                 {
-                    if (type == typeof(Generated.Semantic.Traits.copData))
-                    {
-                        var traitData = sourceEntityManager.GetComponentData<Generated.Semantic.Traits.copData>(sourceEntity);
-                        var plannerTraitData = new cop();
-                        UnsafeUtility.CopyStructureToPtr(ref traitData, UnsafeUtility.AddressOf(ref plannerTraitData));
-                        SetTraitOnObject(plannerTraitData, ref traitBasedObject);
-                    }
                     if (type == typeof(Generated.Semantic.Traits.LocationData))
                     {
                         var traitData = sourceEntityManager.GetComponentData<Generated.Semantic.Traits.LocationData>(sourceEntity);
@@ -841,10 +834,6 @@ namespace Generated.AI.Planner.StateRepresentation.RobberPlan
             if (!traitBasedObjectLHS.HasSameTraits(traitBasedObjectRHS))
                 return false;
 
-            if (traitBasedObjectLHS.copIndex != TraitBasedObject.Unset
-                && !copTraitAttributesEqual(copBuffer[traitBasedObjectLHS.copIndex], rhsState.copBuffer[traitBasedObjectRHS.copIndex]))
-                return false;
-
 
             if (traitBasedObjectLHS.LocationIndex != TraitBasedObject.Unset
                 && !LocationTraitAttributesEqual(LocationBuffer[traitBasedObjectLHS.LocationIndex], rhsState.LocationBuffer[traitBasedObjectRHS.LocationIndex]))
@@ -859,12 +848,6 @@ namespace Generated.AI.Planner.StateRepresentation.RobberPlan
 
 
             return true;
-        }
-        
-        bool copTraitAttributesEqual(cop one, cop two)
-        {
-            return
-                    one.Ready2steal == two.Ready2steal;
         }
         
         bool LocationTraitAttributesEqual(Location one, Location two)
@@ -898,9 +881,7 @@ namespace Generated.AI.Planner.StateRepresentation.RobberPlan
             bufferLength = copBuffer.Length;
             for (int i = 0; i < bufferLength; i++)
             {
-                var element = copBuffer[i];
-                var value = 397
-                    ^ element.Ready2steal.GetHashCode();
+                var value = 397;
                 stateHashValue = 3860031 + (stateHashValue + value) * 2779 + (stateHashValue * value * 2);
             }
             bufferLength = LocationBuffer.Length;

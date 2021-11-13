@@ -173,7 +173,7 @@ namespace Generated.AI.Planner.Plans.RobberPlan
 
         float Reward(StateData originalState, ActionKey action, StateData newState)
         {
-            var reward = 0f;
+            var reward = 5f;
 
             return reward;
         }
