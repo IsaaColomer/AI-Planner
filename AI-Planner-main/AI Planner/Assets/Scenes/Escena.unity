@@ -1145,6 +1145,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe92424afb9864d45af6d79a46d69982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cop: {fileID: 859428156}
+  treasure: {fileID: 382256887}
 --- !u!114 &1867897470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1258,44 +1260,19 @@ MonoBehaviour:
     m_Method: Wander
     m_SourceGameObject: {fileID: 1867897468}
     m_Source: {fileID: 1867897469}
-    m_Arguments:
-    - m_Parameter: Cop
-      m_Trait: {fileID: 0}
-      m_TraitPropertyId: -1
-      m_Enum: {fileID: 0}
-      m_Value: 
-    - m_Parameter: Treasure
-      m_Trait: {fileID: 0}
-      m_TraitPropertyId: -1
-      m_Enum: {fileID: 0}
-      m_Value: 
+    m_Arguments: []
   - m_ActionName: Approach
     m_PlanExecutorStateUpdateMode: 1
     m_Method: Seek
     m_SourceGameObject: {fileID: 1867897468}
     m_Source: {fileID: 1867897469}
-    m_Arguments:
-    - m_Parameter: Treasure
-      m_Trait: {fileID: 0}
-      m_TraitPropertyId: -1
-      m_Enum: {fileID: 0}
-      m_Value: 
-    - m_Parameter: Cop
-      m_Trait: {fileID: 0}
-      m_TraitPropertyId: -1
-      m_Enum: {fileID: 0}
-      m_Value: 
+    m_Arguments: []
   - m_ActionName: Steal
     m_PlanExecutorStateUpdateMode: 0
     m_Method: Steal
     m_SourceGameObject: {fileID: 1867897468}
     m_Source: {fileID: 1867897469}
-    m_Arguments:
-    - m_Parameter: Treasure
-      m_Trait: {fileID: 0}
-      m_TraitPropertyId: -1
-      m_Enum: {fileID: 0}
-      m_Value: 
+    m_Arguments: []
   m_AutoUpdate: 1
 --- !u!114 &1867897474
 MonoBehaviour:

@@ -8,6 +8,9 @@ public class plannerCallback2 : MonoBehaviour
     Moves moves;
     UnityEngine.AI.NavMeshAgent agent;
     Robber trt;
+    public GameObject cop;
+    public GameObject treasure;
+
 
     void Start()
     {
@@ -16,20 +19,22 @@ public class plannerCallback2 : MonoBehaviour
         trt = this.GetComponent<Robber>();
     }
 
-    public void Steal(GameObject treasure)
+    public void Steal()
     {
         Debug.Log("Steal");
-        treasure.GetComponent<Renderer>().enabled = false;
+        treasure.GetComponent<MeshRenderer>().enabled = false;
+
     }
 
-    public IEnumerator Seek(GameObject treasure, GameObject copGO)
+    public IEnumerator Seek()
     {
         Debug.Log("Approach");
         agent.SetDestination(treasure.transform.position);
+
         while ((Vector3.Distance(treasure.transform.position, transform.position) > 2f) &&
-               (Vector3.Distance(treasure.transform.position, copGO.transform.position) > 10f))
+               (Vector3.Distance(treasure.transform.position, cop.transform.position) > 10f))
             yield return null;
-        if (Vector3.Distance(treasure.transform.position, copGO.transform.position) < 10f)
+        if (Vector3.Distance(treasure.transform.position, cop.transform.position) < 10f)
         {
             trt.CopAway = false;
         }
@@ -39,7 +44,7 @@ public class plannerCallback2 : MonoBehaviour
         }
     }
 
-    public IEnumerator Wander(GameObject cop, GameObject treasure)
+    public IEnumerator Wander()
     {
         Debug.Log("Wander");
         while (Vector3.Distance(treasure.transform.position, cop.transform.position) < 10f)
