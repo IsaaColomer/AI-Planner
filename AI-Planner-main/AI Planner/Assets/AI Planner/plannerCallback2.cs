@@ -11,7 +11,6 @@ public class plannerCallback2 : MonoBehaviour
     public GameObject cop;
     public GameObject treasure;
 
-
     void Start()
     {
         moves = this.GetComponent<Moves>();
